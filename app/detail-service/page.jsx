@@ -25,7 +25,7 @@ export default function Detailservices() {
     const [ismobile, setIsmobile] = useState(false)
     const router = useRouter()
     // const doc = JSON.parse(routerd.get('select'))
-    const [docD, setDocd] = useState()
+    const [docD, setDocd] = useState<string | null>(null)
     // const docD = JSON.parse(sessionStorage.getItem('selected'))
     const [page, setPage] = useState(0);
     const [userid, setUserid] = useState()

@@ -21,7 +21,7 @@ export default function Detail() {
     const [exist, setExist] = useState(false)
     // const doc = JSON.parse(routerd.get('select'))
     const router = useRouter()
-    const [docD, setDocd] = useState()
+    const [docD, setDocd] = useState<string | null>(null)
     // const docD = JSON.parse(sessionStorage.getItem('id'))
     const [page, setPage] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 10000 })])
