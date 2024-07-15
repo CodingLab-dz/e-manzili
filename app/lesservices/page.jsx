@@ -18,14 +18,17 @@ export default function Lesservices() {
     useEffect(()=>{
         Aos.init()
     }, [])
-    function handelfixed() {
-        if (window.scrollY >= 500) {
-            setFixed(true)
-        } else {
-            setFixed(false)
+    useEffect(()=>{
+        function handelfixed() {
+            if (window.scrollY >= 500) {
+                setFixed(true)
+            } else {
+                setFixed(false)
+            }
         }
-    }
-    window.addEventListener("scroll", handelfixed)
+        window.addEventListener("scroll", handelfixed)
+    }, [])
+    
     
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage] = useState(12);

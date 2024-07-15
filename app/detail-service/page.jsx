@@ -25,7 +25,8 @@ export default function Detailservices() {
     const [ismobile, setIsmobile] = useState(false)
     const router = useRouter()
     // const doc = JSON.parse(routerd.get('select'))
-    const docD = JSON.parse(sessionStorage.getItem('selected'))
+    const [docD, setDocD] = useState()
+    // const docD = JSON.parse(sessionStorage.getItem('selected'))
     const [page, setPage] = useState(0);
     const [userid, setUserid] = useState()
     const [bienfavv, setBienfav] = useState()
@@ -35,6 +36,11 @@ export default function Detailservices() {
 
     const { toast } = useToast()
 
+    useEffect(() => {
+        // Access sessionStorage here
+       setDocD(JSON.parse(sessionStorage.getItem('selected')))
+        // Perform operations with the retrieved data
+      }, []);
 
     useEffect(() => {
         let int = setInterval(() => {
