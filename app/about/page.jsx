@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 
 export default function About() {
+    const text= "qui sommes nous ? Premier réseau de promoteurs immobilier en Algérie , portail de l’immobilier en Algerie , Notre mission est d’offrir à chacun de nos utilisateurs , une expérience immobilière simple et efficace afin qu’ils concrétisent leurs projets d’achat, en toute sérénité. , nous mettons à dispositions des Algeriens le plus large choix d’annonces afin de leur faciliter la recherche d’un bien selon leurs critères propres , et répondre à toutes les questions soulevées par la réalisation d’un projet immobilier. Notre ambition est de proposer une expérience personnalisée adaptée aux besoins de chacun, afin que chaque vie soit plus simple. specialisé dans les bien neufs , le site propose plusieurs services comme le demenagement, la gestion de bien immobilier ou meme vous conseillez pour mener à bien un achat immobilier, une vente, et une veille sur l'actualité du secteur."
     return (
         <div className="w-full h-fit">
 
@@ -19,7 +20,7 @@ export default function About() {
                     <div>
                         <h1 className="mb-3 text-[30px] font-bold">A propos de nous</h1>
                         <h2 className="mb-6 text[20px]">LE MEILLEUR CHOIX <br /> POUR VOUS</h2>
-                        <p className="mb-6">qui sommes nous ? Premier réseau de promoteurs immobilier en Algérie , portail de l’immobilier en Algerie , Notre mission est d’offrir à chacun de nos utilisateurs , une expérience immobilière simple et efficace afin qu’ils concrétisent leurs projets d’achat, en toute sérénité. , nous mettons à dispositions des Algeriens le plus large choix d’annonces afin de leur faciliter la recherche d’un bien selon leurs critères propres , et répondre à toutes les questions soulevées par la réalisation d’un projet immobilier. Notre ambition est de proposer une expérience personnalisée adaptée aux besoins de chacun, afin que chaque vie soit plus simple. specialisé dans les bien neufs , le site propose plusieurs services comme le demenagement, la gestion de bien immobilier ou meme vous conseillez pour mener à bien un achat immobilier, une vente, et une veille sur l'actualité du secteur.</p>
+                        <p className="mb-6">{text}</p>
                         <Link href='/emanzili'>
                         <Button>Nos Services</Button>
                         </Link>
