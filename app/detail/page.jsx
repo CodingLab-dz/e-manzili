@@ -1,6 +1,5 @@
 'use client'
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
 import Image from "next/image";
@@ -17,7 +16,6 @@ import { useRouter } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 export default function Detail() {
     const [ismobile, setIsmobile] = useState(false)
-    const routerd = useSearchParams()
     const [userid, setUserid] = useState()
     const [bienfavv, setBienfav] = useState()
     const [exist, setExist] = useState(false)

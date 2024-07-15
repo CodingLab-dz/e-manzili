@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
 import Image from "next/image";
@@ -24,7 +23,6 @@ import { useToast } from "@/components/ui/use-toast"
 
 export default function Detailservices() {
     const [ismobile, setIsmobile] = useState(false)
-    const routerd = useSearchParams()
     const router = useRouter()
     // const doc = JSON.parse(routerd.get('select'))
     const docD = JSON.parse(sessionStorage.getItem('selected'))
