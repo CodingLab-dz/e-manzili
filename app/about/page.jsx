@@ -1,5 +1,5 @@
 import React from "react";
-import bnnerabout from "@/images/house-banner.webp"
+import bnnerabout from "@/images/House-banner.jpg"
 import Image from "next/image";
 import Link from 'next/link'
 import { Button } from "@/components/ui/button";
