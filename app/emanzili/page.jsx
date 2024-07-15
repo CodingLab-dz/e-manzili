@@ -20,12 +20,13 @@ export default function Emanzili() {
     const content = [
         {
             title: "Biens haut standing",
-            description: (
-                <div className="h-full flex flex-col">
-                    <p>E-manzili offre aux personnes issues des quatres coins du monde la possibilité d'acquérir un bien immobilier haut standing en Algérie</p>
-                    <Button className='w-fit my-6'>Detail</Button>
-                </div>
-            ),
+            description: "E-manzili offre aux personnes issues des quatres coins du monde la possibilité d'acquérir un bien immobilier haut standing en Algérie",
+            // (
+            //     <div className="h-full flex flex-col">
+            //         <p>E-manzili offre aux personnes issues des quatres coins du monde la possibilité d'acquérir un bien immobilier haut standing en Algérie</p>
+            //         <Button className='w-fit my-6'>Detail</Button>
+            //     </div>
+            // ),
             content: (
                 <div className="h-full w-full bg-center bg-cover" data-aos="fade-down" data-aos-duration="2000">
                     <Image src={bienth} alt='Biens haut standing' style={{ width: '100%', height: '100%' }} />
