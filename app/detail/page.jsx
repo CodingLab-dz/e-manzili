@@ -21,10 +21,17 @@ export default function Detail() {
     const [exist, setExist] = useState(false)
     // const doc = JSON.parse(routerd.get('select'))
     const router = useRouter()
-
-    const docD = JSON.parse(sessionStorage.getItem('id'))
+    const [docD, setDocd] = useState()
+    // const docD = JSON.parse(sessionStorage.getItem('id'))
     const [page, setPage] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 10000 })])
+
+
+    useEffect(() => {
+        setDocd(JSON.parse(sessionStorage.getItem('id')));
+      }, []);
+
+
     useEffect(() => {
         let int = setInterval(() => {
             setPage(prev => ((prev + 1) > (docD.img.length - 1) ? 0 : prev + 1));
