@@ -105,7 +105,7 @@ export default function Detailservices() {
         }
     }
     return (
-        <Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
             <div className="w-full h-fit px-3 lg:px-0">
                 <div className="mt-[80px] m-auto w-full h-fit max-w-7xl rounded-xl overflow-hidden border">
                     <div className='h-[400px] tablet:h-[600px] w-full rounded-lg  overflow-hidden'>
