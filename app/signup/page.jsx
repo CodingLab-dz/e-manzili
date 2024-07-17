@@ -20,7 +20,6 @@ import { collection, addDoc, setDoc, doc } from "firebase/firestore"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import banner from '@/images/House-banner.webp'
-import { useSearchParams } from "next/navigation";
 
 
 export default function Signup() {
@@ -35,9 +34,6 @@ export default function Signup() {
     const [msg, setMsg] = useState("")
     const router = useRouter()
     const [otp, setOpt] = useState()
-    const searchParams = useSearchParams()
-    const docD = JSON.parse(searchParams.get('select'))
-    console.log(JSON.stringify(docD))
 
 
 
