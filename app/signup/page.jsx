@@ -20,6 +20,7 @@ import { collection, addDoc, setDoc, doc } from "firebase/firestore"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import banner from '@/images/House-banner.webp'
+import { useSearchParams } from "next/navigation";
 
 
 export default function Signup() {
@@ -34,8 +35,35 @@ export default function Signup() {
     const [msg, setMsg] = useState("")
     const router = useRouter()
     const [otp, setOpt] = useState()
+    const searchParams = useSearchParams()
+    const docD = JSON.parse(searchParams.get('select'))
+    console.log(JSON.stringify(docD))
 
 
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                router.push('/')
+                // if (!docD) {
+                //     router.push('/')
+                // } else {
+                //     if (docD.type === "states") {
+                //         router.push('/detail?select='+JSON.stringify({ id: docD.id, promo: docD.promo, adress: docD.adres, img: docD.img, prix: docD.prix, disc: docD.disc, entreprise: docD.entreprise, chmbr: docD.chmbr, sanit: docD.sanit, surface: docD.surface, etat: docD.etat }))
+                //         // router.push({
+                //         //     pathname: '/detail',
+                //         //     query: { select: JSON.stringify({ id: docD.id, promo: docD.promo, adress: docD.adres, img: docD.img, prix: docD.prix, disc: docD.disc, entreprise: docD.entreprise, chmbr: docD.chmbr, sanit: docD.sanit, surface: docD.surface, etat: docD.etat }) }
+                //         // })
+                //     } else {
+                //         router.push({
+                //             pathname: '/detail-service',
+                //             query: { select: JSON.stringify({ nom: docD.nom, adress: docD.adres, img: docD.img, mail: docD.mail, disc: docD.disc, id: docD.id, tel: docD.tel, type: docD.type, logo: docD.logo }) }
+                //         })
+                //     }
+                // }
+            }
+        })
+    })
 
     useEffect(() => {
         window.recaptchaVerifier = new RecaptchaVerifier(auth, "recapcha-container", {
@@ -113,14 +141,7 @@ export default function Signup() {
     //  }, [])
 
 
-    
-    useEffect(() => {
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                router.push('/')
-            }
-        })
-    })
+
     return (
         <div className=" m-full min-h-screen flex items-center">
             <div className="w-full max-w-7xl m-auto">

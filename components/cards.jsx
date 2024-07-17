@@ -1,5 +1,5 @@
-
-import React, {useEffect}from 'react'
+'use client'
+import React, {useEffect, useState}from 'react'
 import { Card, CardContent, CardHeader, CardDescription, CardTitle, CardFooter } from './ui/card'
 import { BsFillGridFill } from "react-icons/bs";
 import { MdSingleBed } from "react-icons/md";
@@ -16,9 +16,20 @@ import "aos/dist/aos.css"
 
 export default function Cards({ id, img, adres, promo, surface, prix, chmbr, sanit, disc, entreprise, etat }) {
     const router = useRouter()
+    const [isconnected, setisconnected] =useState(true)
     useEffect(()=>{
         Aos.init()
     }, [])
+
+    useEffect(() => {
+        onAuthStateChanged(auth,async (user) => {
+            if (user) {
+                setisconnected(true)
+            } else {
+                setisconnected(false)
+            }
+        })
+    })
     const handelclick = () => {
         sessionStorage.clear()
         sessionStorage.setItem("id", JSON.stringify({ id: id, promo: promo, adress: adres, img: img, prix: prix, disc: disc, entreprise: entreprise, chmbr: chmbr, sanit: sanit, surface: surface, etat: etat }))
@@ -31,14 +42,19 @@ export default function Cards({ id, img, adres, promo, surface, prix, chmbr, san
         })
 
     }
+    console.log(JSON.stringify({id:id, promo:promo, adress: adres, img: img, prix: prix, disc: disc, entreprise: entreprise, chmbr: chmbr, sanit: sanit, surface: surface, etat: etat}))
     return (
-        <div onClick={handelclick} data-aos="fade-up" data-aos-duration="3000">
-            {/* <Link href={
-                {
+        <div  data-aos="fade-up" data-aos-duration="3000">
+            <Link href={
+                isconnected ? {
                     pathname: '/detail',
-                    query: {select: JSON.stringify({promo:promo, adress: adres, img: img, prix: prix, disc: disc, entreprise: entreprise, chmbr: chmbr, sanit: sanit, surface: surface, etat: etat})}
-                }
-            }> */}
+                    query: {select: JSON.stringify({id:id, promo:promo, adress: adres, img: img, prix: prix, disc: disc, entreprise: entreprise, chmbr: chmbr, sanit: sanit, surface: surface, etat: etat})}
+                } : '/signup'
+                // {
+                //     pathname: '/signup',
+                //     query: {select: JSON.stringify({type: "states",id:id, promo:promo, adress: adres, img: img, prix: prix, disc: disc, entreprise: entreprise, chmbr: chmbr, sanit: sanit, surface: surface, etat: etat})}
+                // }
+            }>
             <Card className="py-3 shadow-lg transition-all hover:-translate-y-2 min-w-[300px]">
                 <CardContent className='bg-cover bg-center h-[200px]'>
                     <Avatar>
@@ -84,7 +100,7 @@ export default function Cards({ id, img, adres, promo, surface, prix, chmbr, san
                     </div>
                 </CardFooter>
             </Card>
-            {/* </Link> */}
+            </Link>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { BsFillGridFill } from "react-icons/bs";
 import { MdSingleBed } from "react-icons/md";
@@ -14,17 +15,23 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth, db } from "../firebase/config";
 import { useRouter } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { states } from "@/data/data";
 export default function Detail() {
     const [ismobile, setIsmobile] = useState(false)
     const [userid, setUserid] = useState()
     const [bienfavv, setBienfav] = useState()
     const [exist, setExist] = useState(false)
-    // const doc = JSON.parse(routerd.get('select'))
+    //  const doc = JSON.parse(routerd.get('select'))
     const router = useRouter()
-    
-    const docD = JSON.parse(sessionStorage.getItem('id'))
+    const [docD2, setDocD2] = useState()
+    const searchParams = useSearchParams()
+    const docD = JSON.parse(searchParams.get('select'))
+    // JSON.parse(sessionStorage.getItem('id'))
     const [page, setPage] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 10000 })])
+    useEffect(()=>{
+        setDocD2(states.find(item => item.id === docD.id))
+    }, [])
     useEffect(() => {
         let int = setInterval(() => {
             setPage(prev => ((prev + 1) > (docD.img.length - 1) ? 0 : prev + 1));

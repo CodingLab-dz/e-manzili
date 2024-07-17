@@ -20,12 +20,15 @@ import { auth, db } from "../firebase/config";
 import { useRouter } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useToast } from "@/components/ui/use-toast"
+import { useSearchParams } from "next/navigation";
 
 export default function Detailservices() {
     const [ismobile, setIsmobile] = useState(false)
     const router = useRouter()
     // const doc = JSON.parse(routerd.get('select'))
-    const docD = JSON.parse(sessionStorage.getItem('selected'))
+    const searchParams = useSearchParams()
+    const docD = JSON.parse(searchParams.get('select'))
+    // JSON.parse(sessionStorage.getItem('selected'))
     const [page, setPage] = useState(0);
     const [userid, setUserid] = useState()
     const [bienfavv, setBienfav] = useState()

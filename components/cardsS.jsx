@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect}from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardDescription, CardTitle, CardFooter } from './ui/card'
 import { BsFillGridFill } from "react-icons/bs";
 import { MdSingleBed } from "react-icons/md";
@@ -14,12 +14,23 @@ import "aos/dist/aos.css"
 
 export default function CardsS({ img, adres, nom, type, mail, tel, disc, id, logo }) {
     const router = useRouter()
-    useEffect(()=>{
+    const [isconnected, setisconnected] =useState(true)
+    useEffect(() => {
         Aos.init()
     }, [])
+
+    useEffect(() => {
+        onAuthStateChanged(auth,async (user) => {
+            if (user) {
+                setisconnected(true)
+            } else {
+                setisconnected(false)
+            }
+        })
+    })
     const handelclick = () => {
         sessionStorage.clear()
-        sessionStorage.setItem("selected", JSON.stringify({nom: nom, adress: adres, img: img, mail: mail, disc: disc, id: id, tel: tel, type: type, logo: logo}))
+        sessionStorage.setItem("selected", JSON.stringify({ nom: nom, adress: adres, img: img, mail: mail, disc: disc, id: id, tel: tel, type: type, logo: logo }))
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 router.push('/detail-service')
@@ -30,7 +41,17 @@ export default function CardsS({ img, adres, nom, type, mail, tel, disc, id, log
 
     }
     return (
-        <div onClick={handelclick} data-aos="fade-up" data-aos-duration="3000">
+        <div data-aos="fade-up" data-aos-duration="3000">
+            <Link href={
+                isconnected ? {
+                    pathname: '/detail-service',
+                    query: {select: JSON.stringify({ nom: nom, adress: adres, img: img, mail: mail, disc: disc, id: id, tel: tel, type: type, logo: logo })}
+                } : '/signup'
+                //  {
+                //     pathname: '/signup',
+                //     query: {select: JSON.stringify({type: "services", nom: nom, adress: adres, img: img, mail: mail, disc: disc, id: id, tel: tel, type: type, logo: logo })}
+                // }
+                }>
                 <Card className="py-3 shadow-lg transition-all hover:-translate-y-2 min-w-[300px]">
                     <CardContent className='bg-cover bg-center h-[200px]'>
                         <Avatar className='rounded-lg overflow-hidden w-full h-full'>
@@ -51,6 +72,7 @@ export default function CardsS({ img, adres, nom, type, mail, tel, disc, id, log
                         </div>
                     </CardFooter>
                 </Card>
+            </Link>
         </div>
     )
 }
