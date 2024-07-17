@@ -23,11 +23,25 @@ import { useToast } from "@/components/ui/use-toast"
 import { useSearchParams } from "next/navigation";
 
 export default function Detailservices() {
+
+
+    function read(){
+        const searchParams = useSearchParams()
+        const doc = JSON.parse(searchParams.get('select'))
+        return doc
+    }
+
+
+
+
+
+
     const [ismobile, setIsmobile] = useState(false)
     const router = useRouter()
     // const doc = JSON.parse(routerd.get('select'))
-    const searchParams = useSearchParams()
-    const docD = JSON.parse(searchParams.get('select'))
+    // const searchParams = useSearchParams()
+    const docD = read()
+    // const docD = JSON.parse(searchParams.get('select'))
     // JSON.parse(sessionStorage.getItem('selected'))
     const [page, setPage] = useState(0);
     const [userid, setUserid] = useState()
@@ -38,6 +52,8 @@ export default function Detailservices() {
 
     const { toast } = useToast()
 
+
+    
 
     useEffect(() => {
         let int = setInterval(() => {
