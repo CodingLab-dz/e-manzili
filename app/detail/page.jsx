@@ -1,9 +1,9 @@
 'use client'
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, Suspense } from "next/router";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { BsFillGridFill } from "react-icons/bs";
 import { MdSingleBed } from "react-icons/md";

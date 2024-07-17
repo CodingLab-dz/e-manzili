@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
 import Image from "next/image";
@@ -20,7 +20,7 @@ import { auth, db } from "../firebase/config";
 import { useRouter } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useToast } from "@/components/ui/use-toast"
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, Suspense } from "next/router";
 
 export default function Detailservices() {
 
