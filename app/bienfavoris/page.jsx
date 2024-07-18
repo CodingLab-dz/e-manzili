@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Suspense} from "react"
 import { onAuthStateChanged } from "firebase/auth"
 import { auth, db } from "../firebase/config";
 import { useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ export default function Bientfavoris() {
         })
     })
     return (
-        <div className="w-full h-fit px-3 lg:px-0">
+        <div className="w-full h-fit min-h-screen px-3 lg:px-0">
             <div className="mt-[80px] m-auto w-full h-fit max-w-7xl flex flex-col">
                 <div className="w-full text-center my-10">
                     <h1 className="mb-3 text-[30px] font-bold">Mes biens Favoris</h1>

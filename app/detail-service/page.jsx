@@ -22,6 +22,7 @@ import React, { useState, useEffect, Suspense } from "react";
 // import { useToast } from "@/components/ui/use-toast"
 // import { useSearchParams, Suspense } from "next/router";
 import Detailsservices from "@/components/detailsservices";
+import { Audio } from "react-loader-spinner";
 
 export default function Detailservices() {
 
@@ -107,7 +108,19 @@ export default function Detailservices() {
     // }
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
+                <div>
+                    <Audio
+                        height="80"
+                        width="80"
+                        radius="9"
+                        color="green"
+                        ariaLabel="loading"
+                        wrapperStyle
+                        wrapperClass
+                    />
+                </div>
+            </div>}>
                 <Detailsservices />
             </Suspense>
         </div>

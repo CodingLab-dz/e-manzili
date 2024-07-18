@@ -17,6 +17,7 @@ import React, { useState, useEffect, Suspense } from "react";
 // import { doc, getDoc, updateDoc } from "firebase/firestore";
 // import { states } from "@/data/data";
 import Details from "@/components/details";
+import { Audio } from "react-loader-spinner";
 export default function Detail() {
 
 
@@ -96,7 +97,19 @@ export default function Detail() {
     // }
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
+                <div>
+                    <Audio
+                        height="80"
+                        width="80"
+                        radius="9"
+                        color="green"
+                        ariaLabel="loading"
+                        wrapperStyle
+                        wrapperClass
+                    />
+                </div>
+            </div>}>
                 <Details />
             </Suspense>
         </div>

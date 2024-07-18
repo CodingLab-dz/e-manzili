@@ -15,17 +15,21 @@ import "aos/dist/aos.css"
 export default function Lesservices() {
     const [filter, setFilter] = useState("all")
     const [fixed, setFixed] = useState(false)
+
+
+    function handelfixed() {
+        if (window.scrollY >= 500) {
+            setFixed(true)
+        } else {
+            setFixed(false)
+        }
+    }
+
     useEffect(()=>{
         Aos.init()
     }, [])
     useEffect(()=>{
-        function handelfixed() {
-            if (window.scrollY >= 500) {
-                setFixed(true)
-            } else {
-                setFixed(false)
-            }
-        }
+        
         window.addEventListener("scroll", handelfixed)
     }, [])
     
