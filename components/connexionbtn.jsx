@@ -21,11 +21,11 @@ import { Input } from './ui/input'
 import Link from 'next/link'
 import countryNames from 'react-phone-number-input/locale/fr.json'
 import { auth, app } from '@/app/firebase/config'
-import { RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged } from "firebase/auth";
+import { RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore"
 import 'react-phone-number-input/style.css';
 import PhoneInput, { isValidPhoneNumber, isPossiblePhoneNumber, getCountryCallingCode, getCountries } from 'react-phone-number-input';
-import { usePathname, useRouter} from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 export default function Connexionbtn() {
     const usepath = usePathname()
     const [next, setNext] = useState(false)
@@ -35,18 +35,21 @@ export default function Connexionbtn() {
     const [msg, setMsg] = useState("")
     const [confirmation, setConfirmation] = useState(null)
     const router = useRouter()
+    const [open, setOpen] = useState(false)
+    const [pass, setPass] = useState("")
 
-    useEffect(() => {
-        window.recaptchaVerifier = new RecaptchaVerifier(auth, "recapcha-container", {
-            'size': 'invisible',
-            'callback': (response) => {
 
-            },
-            'expired-callback': () => {
+    // useEffect(() => {
+    //     window.recaptchaVerifier = new RecaptchaVerifier(auth, "recapcha-container", {
+    //         'size': 'invisible',
+    //         'callback': (response) => {
 
-            },
-        })
-    }, [auth])
+    //         },
+    //         'expired-callback': () => {
+
+    //         },
+    //     })
+    // }, [auth])
 
 
 
@@ -57,7 +60,7 @@ export default function Connexionbtn() {
                 const doc = JSON.parse(sessionStorage.getItem('id'))
                 if (doc) {
                     router.push('/detail')
-                }else{
+                } else {
                     router.push('/detail-service')
                 }
 
@@ -86,10 +89,20 @@ export default function Connexionbtn() {
         //setNext(true)
     }
 
+    const handelemail = async () => {
+        var email = "" + value + "@emanzili.com"
+        try {
+            await signInWithEmailAndPassword(auth, email, pass).then(() => {
+                setOpen(false)
+            })
+        } catch (error) {
+            window.alert("verifer vos information")
+        }
+    }
     return (
         <div>
-            <Dialog>
-                <DialogTrigger asChild>
+            <Dialog open={open}>
+                <DialogTrigger asChild onClick={() => setOpen(true)}>
                     <Button>Connexion</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
@@ -116,8 +129,10 @@ export default function Connexionbtn() {
                                     error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
                                 />
                             </div>
+                            <Label htmlFor="pass">Mots de passe</Label>
+                            <Input type="password" id='pass' className='my-2 px-2 w-[240px]' onChange={(e) => setPass(e.target.value)} value={pass} />
                         </div>
-                        <div className={next ? 'w-full h-full bg-white absolute z-10 left-0 top-0 transition-all' : 'w-full h-full bg-white absolute z-10 left-[120%] top-0 transi'}>
+                        {/* <div className={next ? 'w-full h-full bg-white absolute z-10 left-0 top-0 transition-all' : 'w-full h-full bg-white absolute z-10 left-[120%] top-0 transi'}>
 
                             <div className="grid grid-cols-1 items-center gap-4">
                                 <Label htmlFor="username" className="text-left">
@@ -142,11 +157,14 @@ export default function Connexionbtn() {
                                     </InputOTP>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <DialogFooter>
                         <div className='flex flex-col w-full'>
-                            {
+                            <div>
+                                <Button onClick={handelemail} type="submit">connexion</Button>
+                            </div>
+                            {/* {
                                 !next ? <div className='flex flex-row justify-end' onClick={handelbutton}>
                                     <Button type="submit">Resive OTP</Button>
                                 </div> : <div className='w-full flex flex-row justify-between items-center'>
@@ -154,18 +172,18 @@ export default function Connexionbtn() {
                                         <Button variant="outline" type="submit">return</Button>
                                     </div>
                                     <div>
-                                        <Button onClick={handelOTP} type="submit">connexion</Button>
+                                        <Button onClick={handelemail} type="submit">connexion</Button>
                                     </div>
                                 </div>
-                            }
+                            } */}
                             <div className='my-2 text-right'>
-                                <Link href="/signup">Create a accoute</Link>
+                                <Link href="/signup" onClick={() => setOpen(false)}>Create a accoute</Link>
                             </div>
                         </div>
                     </DialogFooter>
                 </DialogContent>
 
-                <div id="recapcha-container" className='z-50'></div>
+                {/* <div id="recapcha-container" className='z-50'></div> */}
             </Dialog>
         </div>
     )

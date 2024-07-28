@@ -39,7 +39,7 @@ export default function Servicesfavoris() {
         <div className="w-full h-fit min-h-screen px-3 lg:px-0">
             <div className="mt-[80px] m-auto w-full h-fit max-w-7xl flex flex-col">
                 <div className="w-full text-center my-10">
-                    <h1 className="mb-3 text-[30px] font-bold">Mes biens Favoris</h1>
+                    <h1 className="mb-3 text-[30px] font-bold">Mes srvices Favoris</h1>
                 </div>
                 {
                     (favlist.length > 0) ?
