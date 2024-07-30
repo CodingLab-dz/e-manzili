@@ -169,7 +169,7 @@ export default function Details() {
                                     </div>
                                     <div>
                                         {
-                                            (docD.entreprise.phone).map((ph, k) => (
+                                            docD.entreprise?.phone.map((ph, k) => (
                                                 <h1 key={k}>{ph}</h1>
                                             ))
                                         }
