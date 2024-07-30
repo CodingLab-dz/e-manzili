@@ -16,7 +16,7 @@ import { auth, db } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { states } from "@/data/data";
-export default function Details() {
+export default function Details({docD}) {
     
 
     // function read(){
@@ -31,10 +31,10 @@ export default function Details() {
     const [bienfavv, setBienfav] = useState()
     const [exist, setExist] = useState(false)
     //  const doc = JSON.parse(routerd.get('select'))
-    const router = useRouter()
-    const searchParams = useSearchParams()
+    // const router = useRouter()
+    // const searchParams = useSearchParams()
+    // const docD = JSON.parse(searchParams.get('select'))
     // const docD = read()
-    const docD = JSON.parse(searchParams.get('select'))
     // JSON.parse(sessionStorage.getItem('selected'))
     // JSON.parse(sessionStorage.getItem('id'))
     const [page, setPage] = useState(0);
