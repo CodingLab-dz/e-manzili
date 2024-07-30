@@ -27,7 +27,7 @@ export const states = [
             note: "4,5",
             adresse: "jpoispoids",
             mail: "mail@mail.com",
-            phone: ["45678", "45678", "45678"],
+            phone: "075368874",
             discription: "jjklskjdlksjdls",
             logo: "https://firebasestorage.googleapis.com/v0/b/pi-test-98aa0.appspot.com/o/logos%2Fgaea.jpg?alt=media&token=3f55dc0e-c8a2-4681-b974-0a8e87b3d428"
         }
