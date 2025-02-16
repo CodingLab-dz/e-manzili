@@ -102,24 +102,9 @@ export default function Detail() {
     //     }
     // }
     return (
-        <div>
-            {/* <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
-                <div>
-                    <Audio
-                        height="80"
-                        width="80"
-                        radius="9"
-                        color="green"
-                        ariaLabel="loading"
-                        wrapperStyle
-                        wrapperClass
-                    /> 
-                    {null}
-                </div>
-            </div>}> */}
-            <Suspense>
-                <Details docD={docD}/>
-            </Suspense>
-        </div>
+        <Suspense>
+            <Details docD={docD}/>
+        </Suspense>
+            
     );
 }
