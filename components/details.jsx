@@ -84,7 +84,20 @@ export default function Details({ docD }) {
         }
     }
     return (
-        <Suspense>
+        <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
+            <div>
+                <Audio
+                    height="80"
+                    width="80"
+                    radius="9"
+                    color="green"
+                    ariaLabel="loading"
+                    wrapperStyle
+                    wrapperClass
+                /> 
+                {null}
+            </div>
+        </div>}>
             <div className="w-full h-fit px-3 lg:px-0">
                 <div className="mt-[80px] m-auto w-full h-fit max-w-7xl rounded-xl overflow-hidden border">
                     <div className='h-[400px] tablet:h-[600px] w-full rounded-lg  overflow-hidden'>
