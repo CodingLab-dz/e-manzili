@@ -84,7 +84,7 @@ export default function Details({ docD }) {
         }
     }
     return (
-        <Sueprse>
+        <Suspense>
             <div className="w-full h-fit px-3 lg:px-0">
                 <div className="mt-[80px] m-auto w-full h-fit max-w-7xl rounded-xl overflow-hidden border">
                     <div className='h-[400px] tablet:h-[600px] w-full rounded-lg  overflow-hidden'>
@@ -219,6 +219,6 @@ export default function Details({ docD }) {
                     </div>
                 </div>
             </div>
-        </Sueprse>
+        </Suspense>
     );
 }
