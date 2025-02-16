@@ -14,6 +14,8 @@ import Link from 'next/link';
 export default function Coaching() {
     const h1 = "Et si vendre devenait un Jeu d’enfant !"
     const apropos = 'E-manzili est une société spécialisée en stratégie de vente, organisation et management dans le secteur immobilier. Nous accompagnons les entreprises en les aidant à définir et à mettre en œuvre des stratégies commerciales personnalisées, basées sur une analyse précise du marché. Nos services incluent des formations en leadership, gestion d’équipe, et techniques avancées de vente et de négociation immobilière. Nous optimisons également les processus de vente et de recouvrement pour maximiser l’efficacité de vos équipes. E-manzili propose des solutions innovantes en stratégie marketing immobilier, avec des plans sur mesure, des photographies professionnelles et des visites virtuelles. Notre objectif : vous accompagner dans le développement de votre activité et maximiser votre succès immobilier.'
+    const bannertext= "Chez e-manzili, nous offrons des services de consultation spécialisés en organisation, management et stratégie de vente immobilière. Notre expertise aide nos clients à optimiser leurs processus, à améliorer leur gestion et à maximiser les résultats de leurs ventes immobilières."
+    const imane= " Consultante en stratégie de vente | Consultante en organisation et management | Chef de projet en commercialisation et services immobiliers en ligne Forte de plusieurs années d'expérience dans le marketing et l'immobilier, je me spécialise dans l'accompagnement des entreprises pour optimiser leur stratégie de vente et leur organisation. En tant que consultante, j'aide mes clients à créer des approches commerciales efficaces, adaptées aux besoins du marché actuel. Je combine mon expertise en management pour structurer des équipes performantes et en gestion de projets immobiliers en ligne pour dynamiser la commercialisation de biens. Mon objectif est d'aider mes clients à réussir grâce à des solutions stratégiques et innovantes. Je vous propose des formations et du coaching pour booster vos projets et atteindre vos objectifs."
     const services = [
         { id: 1, img: "Consultation", title: 'Étude et analyse du marché immobilier', description: "Je réalise des études approfondies des tendances du marché immobilier local et régional, vous permettant de mieux comprendre les dynamiques du secteur. J’évalue également les prix de vente de propriétés similaires en fonction de leur positionnement, pour vous fournir une analyse précise et stratégique afin de maximiser vos opportunités de vente." },
         { id: 2, img: "Management", title: "Coaching/Formation", description: "Je propose des formations sur le leadership et la gestion d’équipes immobilières, afin de renforcer vos compétences managériales. Vous apprendrez des techniques avancées de vente et de négociation immobilière, ainsi que des stratégies de communication pour mieux interagir avec vos clients. Je vous aide également à optimiser les processus de vente et de recouvrement pour améliorer l'efficacité de votre équipe." },
@@ -29,7 +31,7 @@ export default function Coaching() {
                         <div className="w-full tablet:w-[50%] pt-14 mb-[60px]">
                             <h1 className="font-bold my-6 text-[30px]">{h1}</h1>
                             <p>
-                                Chez e-manzili, nous offrons des services de consultation spécialisés en organisation, management et stratégie de vente immobilière. Notre expertise aide nos clients à optimiser leurs processus, à améliorer leur gestion et à maximiser les résultats de leurs ventes immobilières.
+                                {bannertext}
                             </p>
                             <Link href='#contact'>
                                 <Button className='mt-6'>Contacter</Button>
@@ -81,13 +83,7 @@ export default function Coaching() {
                     <div className="w-full target:w-[50%] pt-6 ">
                         <h1 className="font-bold mb-6 text-[30px] ml-12 ">ABID IMANE</h1>
                         <p className="px-6">
-                            Consultante en stratégie de vente | Consultante en organisation et management | Chef de projet en commercialisation et services immobiliers en ligne
-
-                            Forte de plusieurs années d'expérience dans le marketing et l'immobilier, je me spécialise dans l'accompagnement des entreprises pour optimiser leur stratégie de vente et leur organisation. En tant que consultante, j'aide mes clients à créer des approches commerciales efficaces, adaptées aux besoins du marché actuel.
-
-                            Je combine mon expertise en management pour structurer des équipes performantes et en gestion de projets immobiliers en ligne pour dynamiser la commercialisation de biens. Mon objectif est d'aider mes clients à réussir grâce à des solutions stratégiques et innovantes.
-
-                            Je vous propose des formations et du coaching pour booster vos projets et atteindre vos objectifs.
+                           {imane}
                         </p>
                     </div>
                     {/* image */}
