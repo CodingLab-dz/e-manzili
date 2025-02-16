@@ -21,10 +21,10 @@ import { Audio } from "react-loader-spinner";
 import { useSearchParams } from "next/navigation";
 export default function Detail() {
 
-    
+
     const searchParams = useSearchParams()
     const docD = JSON.parse(searchParams.get('select'))
-    
+
 
 
     // function read(){
@@ -103,21 +103,8 @@ export default function Detail() {
     // }
     return (
         <div>
-            <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
-                <div>
-                    {/* <Audio
-                        height="80"
-                        width="80"
-                        radius="9"
-                        color="green"
-                        ariaLabel="loading"
-                        wrapperStyle
-                        wrapperClass
-                    /> */}
-                    Loading...
-                </div>
-            </div>}>
-                <Details docD={docD}/>
+            <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">Loading...</div>}>
+                <Details docD={docD} />
             </Suspense>
         </div>
     );
