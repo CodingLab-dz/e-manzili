@@ -15,6 +15,7 @@ import { auth, db } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { states } from "@/data/data";
+import { Audio } from "react-loader-spinner";
 export default function Details({ docD }) {
 
 
