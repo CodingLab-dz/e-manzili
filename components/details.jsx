@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, suspense } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
 import Image from "next/image";
@@ -15,8 +15,8 @@ import { auth, db } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { states } from "@/data/data";
-export default function Details({docD}) {
-    
+export default function Details({ docD }) {
+
 
 
 
@@ -84,6 +84,7 @@ export default function Details({docD}) {
         }
     }
     return (
+        <Sueprse>
             <div className="w-full h-fit px-3 lg:px-0">
                 <div className="mt-[80px] m-auto w-full h-fit max-w-7xl rounded-xl overflow-hidden border">
                     <div className='h-[400px] tablet:h-[600px] w-full rounded-lg  overflow-hidden'>
@@ -218,5 +219,6 @@ export default function Details({docD}) {
                     </div>
                 </div>
             </div>
+        </Sueprse>
     );
 }
