@@ -18,12 +18,12 @@ import React, { useState, useEffect, Suspense } from "react";
 // import { states } from "@/data/data";
 import Details from "@/components/details";
 import { Audio } from "react-loader-spinner";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 export default function Detail() {
 
 
-    const searchParams = useSearchParams()
-    const docD = JSON.parse(searchParams.get('select'))
+    // const searchParams = useSearchParams()
+    // const docD = JSON.parse(searchParams.get('select'))
 
 
 
