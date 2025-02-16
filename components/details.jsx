@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { BsFillGridFill } from "react-icons/bs";
 import { MdSingleBed } from "react-icons/md";
@@ -19,11 +18,6 @@ import { states } from "@/data/data";
 export default function Details({docD}) {
     
 
-    // function read(){
-    //     const searchParams = useSearchParams()
-    //     const doc = JSON.parse(searchParams.get('select'))
-    //     return doc
-    // }
 
 
     const [ismobile, setIsmobile] = useState(false)
