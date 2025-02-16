@@ -96,7 +96,6 @@ export default function Details({ docD }) {
                     wrapperStyle
                     wrapperClass
                 /> 
-                {null}
             </div>
         </div>}>
             <div className="w-full h-fit px-3 lg:px-0">

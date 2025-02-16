@@ -113,13 +113,24 @@ export default function Detail() {
                     wrapperStyle
                     wrapperClass
                 /> 
-                {null}
             </div>
         </div>}>
-            <Details docD={docD}/>
+            <DetailContent />
         </Suspense>
-            
     );
+}
+
+
+function DetailContent() {
+    const searchParams = useSearchParams();
+    const selectParam = searchParams.get("select");
+
+    if (!selectParam) {
+        return <div>Error: No data found!</div>;
+    }
+
+    const docD = JSON.parse(selectParam);
+    return <Details docD={docD} />;
 }
 
 
