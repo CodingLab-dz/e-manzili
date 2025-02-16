@@ -105,7 +105,7 @@ export default function Detail() {
         <div>
             <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
                 <div>
-                    <Audio
+                    {/* <Audio
                         height="80"
                         width="80"
                         radius="9"
@@ -113,7 +113,8 @@ export default function Detail() {
                         ariaLabel="loading"
                         wrapperStyle
                         wrapperClass
-                    />
+                    /> */}
+                    Loading...
                 </div>
             </div>}>
                 <Details docD={docD}/>
