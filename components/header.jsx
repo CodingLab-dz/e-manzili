@@ -24,7 +24,8 @@ export default function Header() {
     const onlyWidth = useWindowWidth()
     const mobilewith = onlyWidth < 768
     const links = [
-        { label: "Les Biens", link: "/" },
+        { label: "Acceuil", link: "/" },
+        { label: "Les Biens", link: "/lesbiens" },
         { label: "les services", link: "/lesservices" },
         { label: "A propos", link: "/about" },
         { label: "E-manzili", link: "/emanzili" },
