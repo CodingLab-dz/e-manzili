@@ -117,7 +117,7 @@ export default function Detail() {
                     {null}
                 </div>
             </div>}> */}
-            <Suspense fallback={null}>
+            <Suspense>
                 <Details docD={docD}/>
             </Suspense>
         </div>
