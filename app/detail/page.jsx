@@ -103,9 +103,9 @@ export default function Detail() {
     // }
     return (
         <div>
-            <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
+            {/* <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
                 <div>
-                    {/* <Audio
+                    <Audio
                         height="80"
                         width="80"
                         radius="9"
@@ -113,10 +113,11 @@ export default function Detail() {
                         ariaLabel="loading"
                         wrapperStyle
                         wrapperClass
-                    /> */}
-                    Loading...
+                    /> 
+                    {null}
                 </div>
-            </div>}>
+            </div>}> */}
+            <Suspense fallback={null}>
                 <Details docD={docD}/>
             </Suspense>
         </div>
