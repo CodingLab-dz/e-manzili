@@ -16,7 +16,7 @@ export const Footer = () => {
         { label: "Contact", link: "#contact" }
     ]
     return (
-        <div className='w-full min-h-[200px] bg-[#003566]' id='contact'>
+        <div className='w-full min-h-[200px] bg-blue-950' id='contact'>
             {/* <div className='w-full h-full max-w-7xl mx-auto flex flex-col items-center justify-center'>
                 <div className='h-[150px] overflow-hidden'>
                     <Image src={logo} height={200} width={150} alt='logo' />

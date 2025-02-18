@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, susp } from "react";
 // import useEmblaCarousel from "embla-carousel-react";
 // import Autoplay from 'embla-carousel-autoplay'
 // import Image from "next/image";
@@ -21,10 +21,10 @@ import { Audio } from "react-loader-spinner";
 import { useSearchParams } from "next/navigation";
 export default function Detail() {
 
-    
+
     const searchParams = useSearchParams()
     const docD = JSON.parse(searchParams.get('select'))
-    
+
 
 
     // function read(){
@@ -102,36 +102,12 @@ export default function Detail() {
     //     }
     // }
     return (
-        <Suspense fallback={<div className="w-full h-screen flex justify-center items-center align-middle">
-            <div>
-                <Audio
-                    height="80"
-                    width="80"
-                    radius="9"
-                    color="green"
-                    ariaLabel="loading"
-                    wrapperStyle
-                    wrapperClass
-                /> 
-            </div>
-        </div>}>
-            <DetailContent />
-        </Suspense>
+        <div>
+            <Details docD={docD} />
+
+        </div>
+
     );
 }
 
 
-function DetailContent() {
-    const searchParams = useSearchParams();
-    const selectParam = searchParams.get("select");
-
-    if (!selectParam) {
-        return <div>Error: No data found!</div>;
-    }
-
-    const docD = JSON.parse(selectParam);
-    return <Details docD={docD} />;
-}
-
-
-            
